@@ -2,5 +2,7 @@
 
 server_name: test.nginx2.lb #à renseigner
 proxy_pass: http://localhost:8095 #à renseigner
-nginx_dir: /etc/nginx/conf.d
-docker_dir: /home/ec2-user/docker-helloworld-http
+nginx_dir: /etc/nginx/conf.d #à renseigner
+user_dir: /home/ec2-user #à renseigner
+docker_dir: docker-helloworld-http #à renseigner
+repo_github: https://github.com/opsxcq/docker-helloworld-http #à renseigner
