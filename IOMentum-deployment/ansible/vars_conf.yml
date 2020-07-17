@@ -4,5 +4,5 @@ server_name: test.nginx2.lb #à renseigner
 proxy_pass: http://localhost:8095 #à renseigner
 nginx_dir: /etc/nginx/conf.d #à renseigner
 user_dir: /home/ec2-user/docker_test #à renseigner
-docker_dir: docker_test/IOMentum-deployment/docker-helloworld-http #à renseigner
+docker_dir: IOMentum-deployment/docker-helloworld-http #à renseigner
 repo_github: https://github.com/Demgien/donow_ansible.git #à renseigner
