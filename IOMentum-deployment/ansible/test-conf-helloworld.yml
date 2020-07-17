@@ -21,7 +21,7 @@
    - name: Import du repo GitHub
      git: 
         repo: "{{ repo_github }}"
-        dest: "{{ user_dir }}"
+        dest: "{{ user_dir }}/"
 
    - name: Ajout du template de conf dans NginX conf.d
      become: true
