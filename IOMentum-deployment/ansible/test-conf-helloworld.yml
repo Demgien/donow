@@ -22,6 +22,7 @@
      git: 
         repo: "{{ repo_github }}"
         dest: "{{ docker_dir }}"
+        sudo_user: ec2-user
 
    - name: Ajout du template de conf dans NginX conf.d
      become: true
