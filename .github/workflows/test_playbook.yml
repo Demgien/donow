@@ -57,7 +57,7 @@ jobs:
         # String containing all extraVars which you want to be injected into the run.
         extraVars: # optional
         # File containing extra vars.
-        extraFile: IOMentum-deployment/ansible/roles/vars_conf.yml # optional
+        extraFile: IOMentum-deployment/ansible/vars_conf.yml # optional
         # Choose one of 4 verbosity levels. See Ansible documentation for details.
         verbosity: # optional
 
