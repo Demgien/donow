@@ -16,7 +16,7 @@
   connection: ssh
 
   tasks:
-   - include_vars: roles/vars_conf.yml
+   - include_vars: vars_conf.yml
    
    - name: Import du repo GitHub
      git: 
