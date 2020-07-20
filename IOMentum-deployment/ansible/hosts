@@ -20,5 +20,5 @@
 127.0.0.1	ansible_connection=local
 
 [web]
-18.225.8.52 ansible_user=ec2-user
+18.217.247.59 ansible_user=ec2-user
 
