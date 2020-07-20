@@ -6,9 +6,12 @@
 # enterprise : Donow
 #
 #########################################
-# Playbook Ansible
+# Playbook Ansible called by GitHub Action (workflow).
+# This playbook will pull GitHub repo containing a Docker.
+# It pushes all configurations for NginX (+restarting service),
+# Build and up docker container with a docker-compose.yml file.
 
-- name: Déploiement d'une conf NginX pour Docker-compose
+- name: NginX configuration deploiement with Github + Docker-compose
   hosts: web
   remote_user: ec2-user
   become_method: sudo
@@ -18,31 +21,31 @@
   tasks:
    - include_vars: vars_conf.yml
    
-   - name: Import du repo GitHub
+   - name: GitHub repo import
      git: 
         repo: "{{ repo_github }}"
         dest: "{{ user_dir }}/"
 
-   - name: Ajout du template de conf dans NginX conf.d
+   - name: Nginx configuration file add
      become: true
      template:
         src: templates/nginx.conf.j2
         dest: "{{ nginx_dir }}/{{ server_name }}.conf"
                 
-   - name: Ajout du site dans /etc/hosts
+   - name: server line add in /etc/hosts
      become: true
      lineinfile:
         dest: /etc/hosts
         regexp: "{{ server_name }}"
         line: "127.0.0.1 {{ server_name }}"
   
-   - name: Créer et démarrer le service docker compose
+   - name: Up & build docker-compose container
      docker_compose:
         project_src: "{{ user_dir }}/{{ docker_dir }}"
         state: present
         build: yes
 
-   - name: Relancer le service NginX
+   - name: Restart NginX service
      become: true
      service:
         name: nginx
