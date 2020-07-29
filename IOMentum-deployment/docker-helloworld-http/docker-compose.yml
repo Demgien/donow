@@ -1,6 +1,6 @@
 version: '3'
 services:
   helloworld:
-    image: iomentum-deployment:latest
+    image: strm/helloworld-http:latest
     ports:
         - "8080:80"
