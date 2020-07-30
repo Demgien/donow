@@ -1,6 +1,8 @@
 version: '3'
 services:
   helloworld:
-    image: strm/helloworld-http:latest
+    build:
+      dockerfile: Dockerfile
+      context: ./
     ports:
         - "8080:80"

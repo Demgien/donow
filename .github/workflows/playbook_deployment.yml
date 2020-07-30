@@ -14,8 +14,6 @@ name: Deployment ansible playbook on distant server test
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -28,7 +26,7 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    
+
     # Include SSH Key in a file so the command will recognize it
     - run: 'echo "$AWS_KEY" > key'
       shell: bash
