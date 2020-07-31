@@ -48,7 +48,8 @@
    - name: Prune dangling images (not tagged or not referenced by any container)
      docker_prune:
       images: yes
-      images_filters: yes
+      images_filters:
+        dangling: yes
 
    - name: Restart NginX service
      become: true
