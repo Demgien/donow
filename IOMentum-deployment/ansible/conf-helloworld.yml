@@ -12,11 +12,12 @@
 # Build and up docker container with a docker-compose.yml file.
 
 - name: NginX configuration deploiement with Github + Docker-compose
-  hosts: web
-  remote_user: ec2-user
-  become_method: sudo
-  gather_facts: yes
-  connection: ssh
+  hosts: local
+  #hosts: web
+  #remote_user: ec2-user
+  #become_method: sudo
+  #gather_facts: yes
+  #connection: ssh
 
   tasks:
    - include_vars: vars_conf.yml
@@ -44,6 +45,11 @@
         project_src: "{{ user_dir }}/{{ docker_dir }}"
         state: present
         build: yes
+
+   - name: Prune dangling images (not tagged or not referenced by any container)
+     docker_prune:
+      images: yes
+      images_filters: yes
 
    - name: Restart NginX service
      become: true
