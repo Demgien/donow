@@ -12,12 +12,11 @@
 # Build and up docker container with a docker-compose.yml file.
 
 - name: NginX configuration deploiement with Github + Docker-compose
-  hosts: local
-  #hosts: web
-  #remote_user: ec2-user
-  #become_method: sudo
-  #gather_facts: yes
-  #connection: ssh
+  hosts: web
+  remote_user: ec2-user
+  become_method: sudo
+  gather_facts: yes
+  connection: ssh
 
   tasks:
    - include_vars: vars_conf.yml
